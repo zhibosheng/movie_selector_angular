@@ -10,12 +10,19 @@ import { SignComponent } from './sign/sign.component';
 import { SignupComponent } from './sign/signup/signup.component';
 import { SignoutComponent } from './sign/signout/signout.component';
 import { Routes, RouterModule } from '@angular/router';
+import { MyprofileComponent } from './myprofile/myprofile.component';
+import { OwngroupComponent } from './owngroup/owngroup.component';
+import { JoingroupComponent } from './joingroup/joingroup.component';
+
 
 const appRoutes:Routes = [
   {path:'sign', component: SignComponent},
   {path:'signin', component: SigninComponent},
   {path:'signout', component: SignoutComponent},
-  {path:'signup', component: SignupComponent}   
+  {path:'signup', component: SignupComponent},
+  {path:'myprofile', component: MyprofileComponent},
+  {path:'owngroup', component: OwngroupComponent},
+  {path:'joingroup', component: JoingroupComponent},
 ];
 
 @NgModule({
@@ -27,6 +34,9 @@ const appRoutes:Routes = [
     SignComponent,
     SignupComponent,
     SignoutComponent,
+    MyprofileComponent,
+    OwngroupComponent,
+    JoingroupComponent,
   ],
   imports: [
     BrowserModule,

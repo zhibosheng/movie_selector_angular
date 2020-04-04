@@ -6,23 +6,24 @@
 </div>
 <nav class="navbar navbar-dark bg-dark">
     <!-- Navbar content -->
-    <ul class="nav">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">My Profile</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">My OwnGroup</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">My JoinGroup</a>
-        </li>
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="/myprofile">My Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active"routerLink="/owngroup">My OwnGroup</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="/joingroup">My JoinGroup</a>
+      </li>
+
     </ul>
     <ul class="nav justify-content-end">
       <li class="nav-item justify-content-end">
-        <a class="nav-link" href="#">Sign in</a>
+        <a class="nav-link" routerLink="/signin">Sign in</a>
       </li>
       <li class="nav-item Sjustify-content-end">
-        <a class="nav-link" href="#">Sign up</a>
+        <a class="nav-link" routerLink="/signup">Sign up</a>
       </li>
     </ul>
 </nav>
