@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { LoggingService } from 'src/app/service/logging.service';
 
 @Component({
   selector: 'app-signout',
   templateUrl: './signout.component.html',
-  styleUrls: ['./signout.component.css']
+  styleUrls: ['./signout.component.css'],
+  providers:[LoggingService]
 })
 export class SignoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(private loggingService:LoggingService) { }
 
   ngOnInit(): void {
+    this.loggingService.logStatusChange("This is sign out");
   }
-
+  
 }
