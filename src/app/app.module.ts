@@ -13,9 +13,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { MyprofileComponent } from './myprofile/myprofile.component';
 import { OwngroupComponent } from './owngroup/owngroup.component';
 import { JoingroupComponent } from './joingroup/joingroup.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 
 const appRoutes:Routes = [
+  {path:'',component:WelcomeComponent},
   {path:'sign', component: SignComponent},
   {path:'signin', component: SigninComponent},
   {path:'signout', component: SignoutComponent},
@@ -23,6 +26,8 @@ const appRoutes:Routes = [
   {path:'myprofile', component: MyprofileComponent},
   {path:'owngroup', component: OwngroupComponent},
   {path:'joingroup', component: JoingroupComponent},
+  {path: 'not-found', component: PagenotfoundComponent},
+  {path: "**", redirectTo:'not-found'}
 ];
 
 @NgModule({
@@ -37,6 +42,8 @@ const appRoutes:Routes = [
     MyprofileComponent,
     OwngroupComponent,
     JoingroupComponent,
+    PagenotfoundComponent,
+    WelcomeComponent,
   ],
   imports: [
     BrowserModule,
