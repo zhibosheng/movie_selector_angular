@@ -19,11 +19,17 @@
 
     </ul>
     <ul class="nav justify-content-end">
-      <li class="nav-item justify-content-end">
+      <li class="nav-item justify-content-end" *ngIf = "!islogin">
         <a class="nav-link" routerLink="/signin">Sign in</a>
       </li>
-      <li class="nav-item Sjustify-content-end">
+      <li class="nav-item justify-content-end" *ngIf = "islogin">
+        <a class="nav-link" routerLink="/signin">User Name</a>
+      </li>
+      <li class="nav-item Sjustify-content-end" *ngIf = "!islogin">
         <a class="nav-link" routerLink="/signup">Sign up</a>
+      </li>
+      <li class="nav-item Sjustify-content-end" *ngIf = "islogin">
+        <a class="nav-link" routerLink="/signup">Sign out</a>
       </li>
     </ul>
 </nav>

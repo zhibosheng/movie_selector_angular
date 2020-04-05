@@ -5,7 +5,6 @@ import { LoggingService } from 'src/app/service/logging.service';
   selector: 'app-signin',
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css'],
-  providers:[LoggingService]
 })
 export class SigninComponent implements OnInit {
 

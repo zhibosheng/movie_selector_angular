@@ -5,7 +5,6 @@ import { LoggingService } from 'src/app/service/logging.service';
   selector: 'app-signout',
   templateUrl: './signout.component.html',
   styleUrls: ['./signout.component.css'],
-  providers:[LoggingService]
 })
 export class SignoutComponent implements OnInit {
 

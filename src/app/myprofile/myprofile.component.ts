@@ -5,7 +5,6 @@ import { LoggingService } from '../service/logging.service';
   selector: 'app-myprofile',
   templateUrl: './myprofile.component.html',
   styleUrls: ['./myprofile.component.css'],
-  providers:[LoggingService]
 })
 export class MyprofileComponent implements OnInit {
 

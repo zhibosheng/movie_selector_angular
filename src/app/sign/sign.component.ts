@@ -5,7 +5,6 @@ import { LoggingService } from '../service/logging.service';
   selector: 'app-sign',
   templateUrl: './sign.component.html',
   styleUrls: ['./sign.component.css'],
-  providers:[LoggingService]
 })
 export class SignComponent implements OnInit {
 

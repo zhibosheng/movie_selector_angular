@@ -5,7 +5,6 @@ import { LoggingService } from '../service/logging.service';
   selector: 'app-owngroup',
   templateUrl: './owngroup.component.html',
   styleUrls: ['./owngroup.component.css'],
-  providers:[LoggingService]
 })
 export class OwngroupComponent implements OnInit {
 
