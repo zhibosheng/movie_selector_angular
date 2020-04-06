@@ -17,6 +17,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { LoggingService } from './service/logging.service';
 import { AuthguardService } from './service/authguard.service';
 import { AuthService } from './service/auth.service';
+import { OwngroupCommonComponent } from './owngroup/owngroup-common/owngroup-common.component';
+import { JoingroupCommonComponent } from './joingroup/joingroup-common/joingroup-common.component';
 
 
 
@@ -34,6 +36,8 @@ import { AuthService } from './service/auth.service';
     JoingroupComponent,
     PagenotfoundComponent,
     WelcomeComponent,
+    OwngroupCommonComponent,
+    JoingroupCommonComponent,
   ],
   imports: [
     BrowserModule,
