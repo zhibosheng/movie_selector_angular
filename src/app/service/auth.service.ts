@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { EmailValidator } from '@angular/forms';
 
 
 @Injectable({
@@ -8,7 +10,8 @@ export class AuthService {
   islogin:boolean = false;
 
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
 
   isAuth(){
     const promise = new Promise(
@@ -27,5 +30,15 @@ export class AuthService {
 
   logout(){
     this.islogin = false;
+  }
+
+  signup(userName:string, password:string, email:string, phone:string){
+    return this.http.post('http://localhost:8080/auth/registration',
+    {
+      userName:userName,
+      password:password,
+      email:email,
+      phone:phone
+    })
   }
 }

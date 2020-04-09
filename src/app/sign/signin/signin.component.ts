@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoggingService } from 'src/app/service/logging.service';
 import { AuthService } from 'src/app/service/auth.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-signin',
@@ -17,5 +18,11 @@ export class SigninComponent implements OnInit {
 
   onLogin(){
     this.authService.login();
+  }
+
+  signinRequest(signinForm:NgForm){
+    console.log(signinForm);
+    console.log(signinForm.value.userName);
+    signinForm.reset();
   }
 }

@@ -16,10 +16,8 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loggingService.logStatusChange(String(this.islogin));
   }
   ngOnChanges(){
-    this.loggingService.logStatusChange(String(this.islogin));
   }
 
 }
