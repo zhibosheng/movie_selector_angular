@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { EmailValidator } from '@angular/forms';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Subject, BehaviorSubject } from 'rxjs';
+import { User } from '../model/user.model';
+import{ tap } from'rxjs/operators';
 
 
 @Injectable({
@@ -9,6 +11,7 @@ import { EmailValidator } from '@angular/forms';
 export class AuthService {
   islogin:boolean = false;
   Authorization:string = "";
+  user = new BehaviorSubject<User>(null);
 
 
 
@@ -45,5 +48,15 @@ export class AuthService {
       email:email,
       phone:phone
     })
+  }
+
+  getUserByName(userName:string){
+    // alert(this.Authorization);
+    return this.http.get<User>('http://localhost:8080/user/name/'+userName,{
+      headers: new HttpHeaders({'Authorization':this.Authorization})
+    }).pipe(tap(resData =>{
+      let user = new User(resData.userId,resData.userName,resData.password,resData.email,resData.phone);
+      this.user.next(user);
+    }))
   }
 }

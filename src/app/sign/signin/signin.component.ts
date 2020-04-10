@@ -30,11 +30,18 @@ export class SigninComponent implements OnInit {
       this.authService.islogin = true;
       this.authService.Authorization = resData["Authorization"];
       console.log(this.authService.Authorization);
+      alert("signin success");
+      this.authService.getUserByName(userName).subscribe(userData => {
+        // alert(userData.userName);
+      });
     },
     error => {
       console.log(error);
       alert(error);
     });
+    this.authService.user.subscribe(user => {
+      console.log(user);
+    })
     signinForm.reset();
   }
 }
