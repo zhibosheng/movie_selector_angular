@@ -26,9 +26,10 @@ export class SignupComponent implements OnInit {
     let phone = signupForm.value.phone;
     this.authService.signup(userName,password,email,phone).subscribe(resData => {
       console.log(resData);
+      alert("signup success");
     },
     error => {
-      console.log(error);
+      alert(error);
     });
     signupForm.reset();
   }

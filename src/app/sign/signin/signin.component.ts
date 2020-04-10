@@ -16,13 +16,25 @@ export class SigninComponent implements OnInit {
     this.loggingService.logStatusChange("This is sign in");
   }
 
-  onLogin(){
-    this.authService.login();
-  }
+  // onLogin(){
+  //   this.authService.login();
+  // }
 
   signinRequest(signinForm:NgForm){
-    console.log(signinForm);
-    console.log(signinForm.value.userName);
+    // console.log(signinForm);
+    // console.log(signinForm.value.userName);
+    let userName = signinForm.value.userName;
+    let password = signinForm.value.password;
+    console.log(password);
+    this.authService.signin(userName,password).subscribe(resData => {
+      this.authService.islogin = true;
+      this.authService.Authorization = resData["Authorization"];
+      console.log(this.authService.Authorization);
+    },
+    error => {
+      console.log(error);
+      alert(error);
+    });
     signinForm.reset();
   }
 }

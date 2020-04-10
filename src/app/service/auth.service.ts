@@ -8,6 +8,8 @@ import { EmailValidator } from '@angular/forms';
 })
 export class AuthService {
   islogin:boolean = false;
+  Authorization:string = "";
+
 
 
   constructor(private http: HttpClient) { }
@@ -24,8 +26,11 @@ export class AuthService {
     return promise;
   }
 
-  login(){
-    this.islogin = true;
+  signin(userName:string, password:string){
+    return this.http.post('http://localhost:8080/auth',{
+      userName:userName,
+      password:password
+    })
   }
 
   logout(){
