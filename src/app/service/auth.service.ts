@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Subject, BehaviorSubject } from 'rxjs';
 import { User } from '../model/user.model';
 import{ tap } from'rxjs/operators';
+import { Group } from '../model/group.model';
 
 
 @Injectable({
@@ -12,7 +13,7 @@ export class AuthService {
   islogin:boolean = false;
   Authorization:string = "";
   user = new BehaviorSubject<User>(null);
-
+  group = new BehaviorSubject<Group>(null);
 
 
   constructor(private http: HttpClient) { }
@@ -47,7 +48,7 @@ export class AuthService {
       password:password,
       email:email,
       phone:phone
-    })
+    });
   }
 
   getUserByName(userName:string){
@@ -57,6 +58,16 @@ export class AuthService {
     }).pipe(tap(resData =>{
       let user = new User(resData.userId,resData.userName,resData.password,resData.email,resData.phone);
       this.user.next(user);
-    }))
+    }));
   }
+
+  createGroup(postData){
+    return this.http.post<Group>('http://localhost:8080/group/creation',postData,{
+      headers: new HttpHeaders({'Authorization':this.Authorization})
+    }).pipe(tap(resData =>{
+      let group = new Group(resData.groupId,resData.groupName,resData.groupDescription);
+      this.group.next(group);
+    }));
+  }
+
 }

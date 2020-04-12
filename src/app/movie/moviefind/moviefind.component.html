@@ -1,0 +1,66 @@
+<div class="row">
+    <div class = "col-xs-12">
+        <form (ngSubmit)="findmovie(findmovieForm)" #findmovieForm="ngForm"> 
+            <div class="form-group" >
+              <label for="movieName">movieName</label>
+              <input type="text" class="form-control" id="movieName" ngModel name="movieName" required>
+            </div>
+            <button type="submit" class="btn btn-success" [disabled]="!findmovieForm.valid">Submit</button>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class = "col-xs-12" *ngFor="let ele of ttIdMap | keyvalue" >
+        <p (click) = "getDetails(ele.value)">
+            {{ ele.value }}
+        </p>
+        <button type="submit" class="btn btn-success" (click)="getMoreLikeThis(ele.value)">more like this</button>
+    </div>
+</div>
+<div class="row">
+    <div class = "col-xs-12">
+        <ul>
+            <li *ngFor="let ele of movielist" (click) = "getDetails(ele)">
+              {{ ele }}
+            </li>
+            <hr/>
+        </ul>
+    </div>
+</div>
+<div class="row">
+    <div class = "col-xs-12">
+        <ul *ngIf = "moviedetail">
+            <li>
+              <p>Title : {{ moviedetail.title}} </p>
+              <p>year : {{ moviedetail.year}} </p>
+              <p>releaseDate : {{ moviedetail.releaseDate}} </p>
+              <p>runningTimeInMinutes : {{ moviedetail.runningTimeInMinutes}} </p>
+              <p>genres : {{ moviedetail.genres}} </p>
+              <p>rating : {{ moviedetail.rating}} </p>
+              <img [src]="moviedetail.imageUrl" alt="">
+              <p>plotSummaryText : {{ moviedetail.plotSummaryText}} </p>
+              <p>plotOutlineText : {{ moviedetail.plotOutlineText}} </p>
+            </li>
+            <hr/>
+        </ul>
+        <ul>
+            <li *ngFor="let ele of trailerurl | keyvalue">
+              <p>trailer : {{ ele.value }} </p>
+            </li>
+            <hr/>
+        </ul>
+    </div>
+</div>
+<div class="row">
+    <div class = "col-xs-12">
+        <ul>
+            <li *ngFor="let ele of reviewlist" (click) = "getDetails(ele)">
+              <p>reviewer : {{ ele.displayName }} </p>
+              <p>submissionDate : {{ ele.submissionDate }} </p>
+              <p>reviewTitle : {{ ele.reviewTitle }} </p>
+              <p>reviewText : {{ ele.reviewText }} </p>
+            </li>
+            <hr/>
+        </ul>
+    </div>
+</div>

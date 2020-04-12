@@ -21,6 +21,11 @@ import { AuthguardService } from './service/authguard.service';
 import { AuthService } from './service/auth.service';
 import { OwngroupCommonComponent } from './owngroup/owngroup-common/owngroup-common.component';
 import { JoingroupCommonComponent } from './joingroup/joingroup-common/joingroup-common.component';
+import { CreategroupComponent } from './owngroup/creategroup/creategroup.component';
+import { MovieComponent } from './movie/movie.component';
+import { MovieCommonComponent } from './movie/movie-common/movie-common.component';
+import { MoviedefaultComponent } from './movie/moviedefault/moviedefault.component';
+import { MoviefindComponent } from './movie/moviefind/moviefind.component';
 
 
 
@@ -40,6 +45,11 @@ import { JoingroupCommonComponent } from './joingroup/joingroup-common/joingroup
     WelcomeComponent,
     OwngroupCommonComponent,
     JoingroupCommonComponent,
+    CreategroupComponent,
+    MovieComponent,
+    MovieCommonComponent,
+    MoviedefaultComponent,
+    MoviefindComponent,
   ],
   imports: [
     BrowserModule,

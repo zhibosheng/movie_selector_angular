@@ -11,6 +11,10 @@ import { JoingroupComponent } from './joingroup/joingroup.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { AuthguardService } from './service/authguard.service';
+import { CreategroupComponent } from './owngroup/creategroup/creategroup.component';
+import { MovieComponent } from './movie/movie.component';
+import { MoviedefaultComponent } from './movie/moviedefault/moviedefault.component';
+import { MoviefindComponent } from './movie/moviefind/moviefind.component';
 
 
 const appRoutes:Routes = [
@@ -20,8 +24,14 @@ const appRoutes:Routes = [
   {path:'signout', canActivate: [AuthguardService], component: SignoutComponent},
   {path:'signup', component: SignupComponent},
   {path:'myprofile', canActivate: [AuthguardService], component: MyprofileComponent},
-  {path:'owngroup', canActivate: [AuthguardService], component: OwngroupComponent},
+  {path:'owngroup', canActivate: [AuthguardService], component: OwngroupComponent, children:[
+    {path:'creategroup',component:CreategroupComponent}
+  ]},
   {path:'joingroup', canActivate: [AuthguardService], component: JoingroupComponent},
+  {path:'movie',canActivate: [AuthguardService], component: MovieComponent,children:[
+    {path:'default',component:MoviedefaultComponent},
+    {path:'find',component:MoviefindComponent}
+  ]},
   {path: 'not-found', component: PagenotfoundComponent},
   {path: "**", redirectTo:'not-found'}
 ];
