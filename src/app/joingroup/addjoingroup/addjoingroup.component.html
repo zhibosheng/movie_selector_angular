@@ -1,0 +1,11 @@
+<div class="row">
+    <div class = "col-xs-12">
+        <form (ngSubmit)="addJoinGroup(addJoinGroupForm)" #addJoinGroupForm="ngForm"> 
+            <div class="form-group" >
+              <label for="groupName">groupName</label>
+              <input type="text" class="form-control" id="groupName" ngModel name="groupName" required>
+            </div>
+            <button type="submit" class="btn btn-success" [disabled]="!addJoinGroupForm.valid">Submit</button>
+        </form>
+    </div>
+</div>

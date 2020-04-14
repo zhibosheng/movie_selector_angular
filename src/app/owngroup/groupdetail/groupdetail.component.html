@@ -1,0 +1,32 @@
+<p>groupId : {{group.groupId}}</p>
+<p>groupName : {{group.groupName}}</p>
+<p>groupDescription : {{group.groupDescription}}</p>
+<ul>
+    <li *ngFor="let ele of group.users">join user : {{ele.userName}}</li>
+</ul>
+<ul>
+    <li *ngFor="let ele of group.events" [routerLink]="['/event', ele.eventId]">eventId : {{ele.eventId}}</li>
+</ul>
+<div class="row">
+    <div class = "col-xs-12">
+        <form (ngSubmit)="sendInviteEmail(inviteEmailForm)" #inviteEmailForm="ngForm"> 
+            <div class="form-group" >
+              <label for="email">invite email</label>
+              <input type="text" class="form-control" id="email" ngModel name="email" required>
+            </div>
+            <button type="submit" class="btn btn-success" [disabled]="!inviteEmailForm.valid">Submit</button>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class = "col-xs-12">
+        <form (ngSubmit)="newEvent(newEventForm)" #newEventForm="ngForm"> 
+            <div class="form-group" >
+              <label for="showTime">showTime</label>
+              <input type="text" class="form-control" id="showTime" ngModel name="showTime" required>
+            </div>
+            <button type="submit" class="btn btn-success" [disabled]="!newEventForm.valid">new event</button>
+        </form>
+    </div>
+</div>
+<!-- <p *ngIf = "event" [routerLink]="['/event', event.eventId]" >{{event.eventId}}</p> -->

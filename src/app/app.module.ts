@@ -26,7 +26,14 @@ import { MovieComponent } from './movie/movie.component';
 import { MovieCommonComponent } from './movie/movie-common/movie-common.component';
 import { MoviedefaultComponent } from './movie/moviedefault/moviedefault.component';
 import { MoviefindComponent } from './movie/moviefind/moviefind.component';
-
+import { GroupdetailComponent } from './owngroup/groupdetail/groupdetail.component';
+import { JoingroupdetailComponent } from './joingroup/joingroupdetail/joingroupdetail.component';
+import { AddjoingroupComponent } from './joingroup/addjoingroup/addjoingroup.component';
+import { LeavejoingroupComponent } from './joingroup/leavejoingroup/leavejoingroup.component';
+import { EventComponent } from './event/event.component';
+import { VotingComponent } from './voting/voting.component';
+import { JoineventComponent } from './joinevent/joinevent.component';
+import { VotingdetailComponent } from './votingdetail/votingdetail.component';
 
 
 @NgModule({
@@ -50,6 +57,14 @@ import { MoviefindComponent } from './movie/moviefind/moviefind.component';
     MovieCommonComponent,
     MoviedefaultComponent,
     MoviefindComponent,
+    GroupdetailComponent,
+    JoingroupdetailComponent,
+    AddjoingroupComponent,
+    LeavejoingroupComponent,
+    EventComponent,
+    VotingComponent,
+    JoineventComponent,
+    VotingdetailComponent,
   ],
   imports: [
     BrowserModule,

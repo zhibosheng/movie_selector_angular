@@ -1,0 +1,9 @@
+<div *ngIf = "event">
+    <p> event detail</p>
+    <p>eventId : {{event.eventId}}</p>
+    <p>create time : {{event.createTime}}</p>
+    <p>show time : {{event.showTime}}</p>
+    <p>selectedMovies : {{event.selectedMovies}}</p>
+    <p>movieDecision : {{event.movieDecision}}</p>
+    <p [routerLink]="['/voting', event.voting.votingId]">votingId : {{event.voting.votingId}}</p>
+</div>

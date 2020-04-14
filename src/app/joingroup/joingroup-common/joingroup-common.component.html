@@ -1,10 +1,22 @@
 <div class="row">
     <div class="col-xs-12">
-    <button class="btn btn-info">Join Group</button>
+    <button class="btn btn-info" (click) = "joinGroup()">Join Group</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+    <button class="btn btn-info" (click) = "leaveGroup()">leave Group</button>
     </div>
 </div>
 <hr />
 <div class="row">
     <div class="col-xs-12">
+        <ul>
+            <li *ngFor="let ele of groupSet" [routerLink]="['detail',ele.groupId]">
+              {{ ele.groupName }}
+            </li>
+            <hr/>
+        </ul>
     </div>
 </div>
+

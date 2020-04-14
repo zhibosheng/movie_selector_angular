@@ -1,0 +1,12 @@
+<p>groupId : {{group.groupId}}</p>
+<p>groupName : {{group.groupName}}</p>
+<p>groupDescription : {{group.groupDescription}}</p>
+<ul>
+    <p>Events</p>
+    <li *ngFor="let ele of group.events" [routerLink]="['/joinevent', ele.eventId]">{{ele.eventId}}</li>
+</ul>
+<ul>
+    <p>History</p>
+    <li *ngFor="let ele of history">{{ele.eventId}}</li>
+</ul>
+

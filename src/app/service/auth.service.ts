@@ -13,7 +13,6 @@ export class AuthService {
   islogin:boolean = false;
   Authorization:string = "";
   user = new BehaviorSubject<User>(null);
-  group = new BehaviorSubject<Group>(null);
 
 
   constructor(private http: HttpClient) { }
@@ -61,13 +60,5 @@ export class AuthService {
     }));
   }
 
-  createGroup(postData){
-    return this.http.post<Group>('http://localhost:8080/group/creation',postData,{
-      headers: new HttpHeaders({'Authorization':this.Authorization})
-    }).pipe(tap(resData =>{
-      let group = new Group(resData.groupId,resData.groupName,resData.groupDescription);
-      this.group.next(group);
-    }));
-  }
 
 }

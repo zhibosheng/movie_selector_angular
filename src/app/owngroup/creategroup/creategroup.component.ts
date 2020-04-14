@@ -6,6 +6,7 @@ import { User } from 'src/app/model/user.model';
 import { take,tap } from 'rxjs/operators'
 import { Group } from 'src/app/model/group.model';
 import { Subject, BehaviorSubject } from 'rxjs';
+import { DatarequestService } from 'src/app/service/datarequest.service';
 
 @Component({
   selector: 'app-creategroup',
@@ -15,7 +16,7 @@ import { Subject, BehaviorSubject } from 'rxjs';
 export class CreategroupComponent implements OnInit {
   public user:User;
   public group:Group;
-  constructor(private http: HttpClient,private authService:AuthService) { }
+  constructor(private http: HttpClient,private authService:AuthService,private datarequsest: DatarequestService) { }
 
   ngOnInit(): void {
   }
@@ -28,25 +29,16 @@ export class CreategroupComponent implements OnInit {
     this.authService.user.pipe(take(1)).subscribe(user=>{
       this.user = new User(user.userId,user.userName,user.password,user.email,user.phone);
     });
-    let postData = {
-      userId:this.user.userId,
-      userName:this.user.userName,
-      password:this.user.password,
-      email:this.user.email,
-      phone:this.user.phone,
-      groupName,
-      groupDescription
-    };
-    this.authService.createGroup(postData).subscribe(group=> {
+
+    this.datarequsest.createGroup(this.user.userName,groupName,groupDescription).subscribe(group=> {
       alert("create group");
     });
-    this.authService.group.pipe(take(1)).subscribe(group=>{
+    this.datarequsest.group.pipe(take(1)).subscribe(group=>{
       // alert(user.userName);
       alert(group.groupId);
       this.group = new Group(group.groupId,group.groupName,groupDescription);
     
     });
-    alert("222222");
 
   }
 

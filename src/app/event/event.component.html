@@ -1,0 +1,42 @@
+<div *ngIf = "event">
+    <p> event detail</p>
+    <p>eventId : {{event.eventId}}</p>
+    <p>create time : {{event.createTime}}</p>
+    <p>show time : {{event.showTime}}</p>
+    <p>selectedMovies : {{event.selectedMovies}}</p>
+    <p>movieDecision : {{event.movieDecision}}</p>
+    <p [routerLink]="['/votingdetail', event.voting.votingId]">votingId : {{event.voting.votingId}}</p>
+</div>
+<div class="row">
+    <div class = "col-xs-12">
+        <form (ngSubmit)="addMovie(addMovieForm)" #addMovieForm="ngForm"> 
+            <div class="form-group" >
+              <label for="movieList">movieList</label>
+              <input type="text" class="form-control" id="movieList" ngModel name="movieList" required>
+            </div>
+            <button type="submit" class="btn btn-success" [disabled]="!addMovieForm.valid">add movie list</button>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class = "col-xs-12">
+        <form (ngSubmit)="newVoting(newVotingForm)" #newVotingForm="ngForm"> 
+            <div class="form-group" >
+              <label for="startTime">startTime</label>
+              <input type="text" class="form-control" id="startTime" ngModel name="startTime" required>
+            </div>
+            <div class="form-group" >
+                <label for="startTime">endTime</label>
+                <input type="text" class="form-control" id="endTime" ngModel name="endTime" required>
+              </div>
+            <button type="submit" class="btn btn-success" [disabled]="!newVotingForm.valid">new event</button>
+        </form>
+    </div>
+</div>
+<div *ngIf = "voting">
+    <p> voting detail</p>
+    <p>{{voting.votingId}}</p>
+    <p>{{voting.startTime}}</p>
+    <p>{{voting.endTime}}</p>
+    <p>{{voting.votingResult}}</p>
+</div>

@@ -1,0 +1,19 @@
+<div *ngIf = "voting">
+    <p> voting detail</p>
+    <p>votingId : {{voting.votingId}}</p>
+    <p>startTime : {{voting.startTime}}</p>
+    <p>endTime : {{voting.endTime}}</p>
+    <p>votingResult : {{voting.votingResult}}</p>
+</div>
+
+<div class="row">
+    <div class = "col-xs-12">
+        <form (ngSubmit)="voteForMovie(voteForMovieForm)" #voteForMovieForm="ngForm"> 
+            <div class="form-group" >
+              <label for="ttId">vote for you movie</label>
+              <input type="text" class="form-control" id="ttId" ngModel name="ttId" required>
+            </div>
+            <button type="submit" class="btn btn-success" [disabled]="!voteForMovieForm.valid">vote for movie</button>
+        </form>
+    </div>
+</div>
